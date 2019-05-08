@@ -25,36 +25,49 @@ public function registerBundles()
 }
 ```
 
-*Configure your application's parametrers.yml
+* Add the following configuration to your parameters.yml
 ```yml
 # app/config/parameters.yml
 
 
     url_odoo:  'example.odoo.com'
-    db_odoo: "example-database"
-    username_odoo: "user@email.com"
-    password_odoo: "yourpassword"
+    db_odoo: 'example-database'
+    username_odoo: 'user@email.com'
+    password_odoo: 'yourpassword'
 ```
-Configure the assets
-Import OdooConnectorBundle routing
-```bash
-pip install foobar
+* Import OdooConnectorBundle routing.
+Now that you have activated and configured the bundle, all that is left to do is import the routing files.
+
+```yml
+# app/config/routing.yml
+odoo_connector:
+    resource: "@OdooConnectorBundle/Resources/config/routes.yaml"
 ```
 
 ## Usage
 
-```python
-import foobar
+```php
+# Create an instance of the odoo service
+$odooService = $this->get('odoo_service');
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+# Read records        
+$option[0] = array('id', '=', $id);
+$option[1] = array('name', '=', "Partner Name");
+$odooService->search('res.partner', $option);
+
+# Create records       
+$partner = array('name'=>"New Partner");
+$odooService->create('res.partner', $partner);
+
+# update records        
+$option[0] = array('name'=>"New  Partner Name");
+$odooService->update('res.partner',$id=7,$option);
+
+# delete records        
+$odooService->delete('res.partner',$id=7);
 ```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
