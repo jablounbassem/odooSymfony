@@ -1,8 +1,9 @@
+Installation
 
-Install
-Via Composer
-$ composer require sofia-holding/odoo-connector-bundle
-Usage
+Download OdooConnectorBundle using composer
 
-TODO
-Write the whole usage examples
+composer require sofia-holding/odoo-connector-bundle
+Enable the Bundle
+Configure your application's parametrers.yml
+Configure the assets
+Import OdooConnectorBundle routing
