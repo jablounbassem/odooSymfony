@@ -36,7 +36,7 @@ public function registerBundles()
     password_odoo: 'yourpassword'
 ```
 * Import OdooConnectorBundle routing.
-Now that you have activated and configured the bundle, all that is left to do is import the routing files.
+*** Now that you have activated and configured the bundle, all that is left to do is import the routing files.
 
 ```yml
 # app/config/routing.yml
