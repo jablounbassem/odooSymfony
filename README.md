@@ -11,6 +11,7 @@ A Symfony Client for Odoo using Ripcord RPC library (as used in Odoo Web API doc
 composer require sofia-holding/odoo-connector-bundle
 ```
 * Enable the Bundle
+
 ```php
 <?php
 // app/AppKernel.php
@@ -26,6 +27,7 @@ public function registerBundles()
 ```
 
 * Add the following configuration to your parameters.yml
+
 ```yml
 # app/config/parameters.yml
 
@@ -36,7 +38,6 @@ public function registerBundles()
     password_odoo: 'yourpassword'
 ```
 * Import OdooConnectorBundle routing.
-*** Now that you have activated and configured the bundle, all that is left to do is import the routing files.
 
 ```yml
 # app/config/routing.yml
